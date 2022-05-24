@@ -13,4 +13,8 @@ Router.get('/', async(req, resp) => {
 
 module.exports = [
     Router, //Agregar todos los router de users, task y subtask
+    require('./users/users.router'),
+    require('./tasks/tasks.router'),
+    require('./subtasks/subtasks.router'),
+    require('./sessions/sessions.router')
 ]
