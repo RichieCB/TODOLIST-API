@@ -15,7 +15,7 @@ async function createTask(req, res) {
         const tasks = new Fields(req)
 
         const data = {
-            //userId: req.userId,
+            userId: req.userId,
             name: tasks.name.get(),
             description: tasks.description.get(),
             label: tasks.label.get(), 
