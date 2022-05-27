@@ -40,8 +40,12 @@ async function getTasks(query) {
                 {category: regexp}
             ]
 
+            
+
         }
 
+        options.userId= query.userId
+        console.log(options)
 
         const tasks = await Model.find(options)
             .skip(page * limit)
