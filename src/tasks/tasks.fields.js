@@ -47,6 +47,11 @@ module.exports = function(req) {
         name: 'fecha tarea'
     })
     
+    this.status = validator({
+        type: 'boolean',
+        value: props.status,
+        name: 'status de tarea'
+    })
 
     return this
 }

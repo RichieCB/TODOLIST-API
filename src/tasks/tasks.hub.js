@@ -80,10 +80,13 @@ async function updateTask(req, res) {
             'date',
             'description',
             'category',
-            'label'
+            'label',
+            'status'
         ]
 
-        fields.forEach(field => req.body[field] && (data[field] = req.body[field]))
+        fields.forEach(field => req.body[field] != undefined && (data[field] = req.body[field]))
+
+        console.log(data)
 
         res.$data(await Service.updateTask(data.taskId, data))
 
