@@ -7,7 +7,7 @@ module.exports = function(req) {
     this.subtaskId = validator({
         type: 'objectId',
         value: props.subtaskId,
-        name: 'identificador'
+        name: 'identificador subtarea'
     })
 
     this.taskId = validator({

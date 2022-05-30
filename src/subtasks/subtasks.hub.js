@@ -15,7 +15,7 @@ async function createSubtask(req, res) {
         const subtasks = new Fields(req)
 
         const data = {
-            taskId: subtasks.name.get(),
+            taskId: subtasks.taskId.get(),
             name: subtasks.name.get(),
         }
 
