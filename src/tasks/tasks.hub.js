@@ -6,7 +6,8 @@ module.exports = {
     getTasks,
     getTask,
     updateTask,
-    deleteTask
+    deleteTask,
+    getResume
 }
 
 async function createTask(req, res) {
@@ -53,7 +54,7 @@ async function getTasks(req, res) {
 async function getTask(req, res) {
     try {
 
-        const task = new Fields(req)
+        const tasks = new Fields(req)
 
         const data = {
             taskId: tasks.taskId.get()
@@ -105,6 +106,22 @@ async function deleteTask(req, res) {
         }
 
         res.$data(await Service.deleteTask(data.taskId))
+
+    } catch(error) {
+        res.$error(error)
+    }
+}
+
+async function getResume(req, res) {
+    try {
+
+        const tasks = new Fields(req)
+
+        const query = {
+            userId: req.userId,
+        }
+
+        res.$data(await Service.getResume(query))
 
     } catch(error) {
         res.$error(error)

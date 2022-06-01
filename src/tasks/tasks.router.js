@@ -8,6 +8,8 @@ Router.get('/tasks',Middlewares.auth, Hub.getTasks)
 
 Router.get('/tasks/:taskId',Middlewares.auth, Hub.getTask)
 
+Router.get('/resume',Middlewares.auth, Hub.getResume)
+
 Router.put('/tasks/:taskId',Middlewares.auth, Hub.updateTask)
 
 Router.delete('/tasks/:taskId',Middlewares.auth, Hub.deleteTask)

@@ -7,7 +7,8 @@ module.exports = {
     getTasks,
     getTask,
     updateTask,
-    deleteTask
+    deleteTask,
+    getResume
 
 }
 
@@ -108,4 +109,25 @@ async function deleteTask(taskId) {
     } catch(error) {
         throw error
     }
+}
+
+async function getResume(query) {
+    try {
+
+        const pipeline = [
+            { $match: { userId: query.userId}},
+            { $group: {_id: "$status", total: {$sum: 1}}}
+        ]
+
+
+        const resume = await Model.aggregate(pipeline)
+        
+        return {
+            resume,
+            query
+        }
+
+    } catch(error) {
+        throw error
+    }  
 }
