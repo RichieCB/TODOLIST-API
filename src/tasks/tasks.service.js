@@ -114,18 +114,12 @@ async function deleteTask(taskId) {
 async function getResume(query) {
     try {
 
-        const pipeline = [
+        return  await Model.aggregate([
             { $match: { userId: query.userId}},
             { $group: {_id: "$status", total: {$sum: 1}}}
-        ]
-
-
-        const resume = await Model.aggregate(pipeline)
+        ])
         
-        return {
-            resume,
-            query
-        }
+       
 
     } catch(error) {
         throw error
